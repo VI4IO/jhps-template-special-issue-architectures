@@ -41,7 +41,7 @@
 \maketitle
 
 \begin{abstract}
-This document provides a guideline to prepare the LaTeX document for the submission to JHPS.
+This document provides a guideline to prepare the LaTeX document for the submission to JHPS - for the special issue Architectures of Storage Systems.
 Please check its source code to understand the proper usage of the formatting elements.
 
 If the \verb|\JHPSissue| is set to $>0$, the header will slightly change.
@@ -49,6 +49,44 @@ The date of the document is the day the document was built.
 
 Please also notice the publication process described \href{https://jhps.vi4io.org/authors/#detailed-publication-process}{here} to make sure we can accept your contribution.
 \end{abstract}
+
+
+See below in \Cref{{sec:intro},{sec:acc_sem},{sec:sys_arch},{sec:sto_for},{sec:deep_dive},{sec:per_char},{sec:con_out}} an example for a rough structure of the expected sections in the final document.
+Please note the hints given for each section. You may adjust the titles and content as you see fit to match the topic of your article.
+
+\section{Introduction} \label{sec:intro}
+The introduction section should provide a background regarding the storage system, summarize its development history, it’s usage on existing systems, and a brief feature overview.
+
+\paragraph{History}
+
+\paragraph{Usage}
+
+\paragraph{Features}
+
+\bigskip 
+
+Details about XX are given in the following sections.
+First in \Cref{sec:acc_sem}...
+
+\section{Access Semantics} \label{sec:acc_sem}
+The access semantics section should list the supported logical objects and their semantics, limitations and features for parallel access.
+
+\section{System Architecture} \label{sec:sys_arch}
+The system architecture section should describe the client and server components, their roles and interaction as well as the storage stack from the client to the servers and storage media.
+
+\section{Storage Format} \label{sec:sto_for}
+The storage format section should describe the mapping of logical objects to physical object and ultimately storage media - this is traditionally referred to by the \textit{on-disk} format.
+
+\section{Deep Dive on Features} \label{sec:deep_dive}
+The deep dive on features section is an optional section that should describe how certain features (such as redundancy) are realized with the system.
+
+\section{Performance Characteristics} \label{sec:per_char}
+The performance characteristics section should provide some contemporary performance results, potentially discussing the impact of tunable settings and features.
+
+\section{Conclusion and Outlook} \label{sec:con_out}
+The conclusion and outlook section should wrap up the article and provide a feature outlook.
+
+\clearpage
 
 \setcounter{section}{-1}
 \section{Template Usage}
@@ -215,31 +253,6 @@ This should be listed as in the bibliography, see \Cref{lst:bib}.
 \begin{lstfloat}[h]
 \lstinputlisting[caption="The bibliography.bib file",label={lst:bib},inputencoding={utf8},language=bibtex]{bibliography.bib}
 \end{lstfloat}
-
-\subsection{Rough Sections}
-See below in the following sections \Cref{{sec:intro},{sec:acc_sem},{sec:sys_arch},{sec:sto_for},{sec:deep_dive},{sec:per_char},{sec:con_out}} an example for a rough structure of the expected sections in the final document.
-Please note the hints given for each section. You may adjust the titles and content as you see fit to match the topic of your article.
-
-\section{Introduction} \label{sec:intro}
-The introduction section should provide a background regarding the storage system, summarize its development history, it’s usage on existing systems, and a brief feature overview.
-
-\section{Access Semantics} \label{sec:acc_sem}
-The access semantics section should list the supported logical objects and their semantics, limitations and features for parallel access.
-
-\section{System Architecture} \label{sec:sys_arch}
-The system architecture section should describe the client and server components, their roles and interaction as well as the storage stack from the client to the servers and storage media.
-
-\section{Storage Format} \label{sec:sto_for}
-The storage format section should describe the mapping of logical objects to physical object and ultimately storage media - this is traditionally referred to by the \textit{on-disk} format.
-
-\section{Deep Dive on Features} \label{sec:deep_dive}
-The deep dive on features section is an optional section that should describe how certain features (such as redundancy) are realized with the system.
-
-\section{Performance Characteristics} \label{sec:per_char}
-The performance characteristics section should provide some contemporary performance results, potentially discussing the impact of tunable settings and features.
-
-\section{Conclusion and Outlook} \label{sec:con_out}
-The conclusion and outlook section should wrap up the article and provide a feature outlook.
 
 \subsection*{Acknowledgment} %% Remove this section if not needed
 \textit{We thank XX for sponsoring.}
