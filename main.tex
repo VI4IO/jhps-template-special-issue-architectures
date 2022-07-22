@@ -28,11 +28,13 @@
 \counterwithin{lstlisting}{section}
 
 \JHPSissue{0}   % keep 0 until the issue is assigned
-\JHPSkeywords{Compression, NetCDF}   % add 2-5 keywords
+\JHPSkeywords{Storage Architecture, }   % add 2-5 keywords
 
   % Author macro takes Name, Institution, Optional Link to the person, Optional Email
-\JHPSauthor{Max Müller}{My institution\\Berlin, Germany}{https://myinstitution.com/max}{max@müller.com}
-\JHPSauthor{Priya Singh}{Another affiliation\\Bangladesh, India}{}{}   % use empty email here
+\JHPSauthor{Max Müller}{My institution\\
+    Berlin, Germany}{https://myinstitution.com/max}{max@müller.com}
+\JHPSauthor{Priya Singh}{Another affiliation\\
+    Bangladesh, India}{}{}
 
 \title{My Title}
 
@@ -46,12 +48,13 @@ If the \verb|\JHPSissue| is set to $>0$, the header will slightly change.
 The date of the document is the day the document was built.
 \end{abstract}
 
-\section{Introduction}
-\label{sec:intro}
+\setcounter{section}{-1}
+\section{Template Usage}
+\label{sec:usage}
 
-This document describes the formatting for JHPS.
-Please check the LaTeX source code.
-In \Cref{sec:intro}, the formatting style for different elements is described.
+This section describes the formatting for JHPS.
+Please check the LaTeX source code and comment out or delete this section before you submit your manuscript.
+In \Cref{sec:usage}, the formatting style for different elements is described.
 
 \subsection{Structure}
 
@@ -159,8 +162,8 @@ int main(){
 }
 \end{lstlisting}
 
-\begin{lstfloat}
-  \begin{lstlisting}[caption="My longer listing",label=lst:longlisting,language=C]
+\begin{lstfloat}[h]
+  \begin{lstlisting}[caption="My longer listing",label={lst:longlisting},language=C]
 int main(){
   // Comment
   /* comment */
@@ -197,7 +200,7 @@ Some verbatim text
 Use the Cref command, e.g. \verb|\Cref{lst:listing}|.\subsection{Citations}
 
 Please use the default style; example: \cite{misc1998}.
-Please save the bibliography in the file \texttt{bibliography.bib}.
+Please save the bibliography in the file \texttt{bibliography.bib} using bibtex format (not biblatex).
 
 Generally, avoid using links in the bibliography, use a footnote instead.
 Online references such as webpage, posters or presentations can be used and cited such as: \cite{link20pres, link20post, link20web}.
@@ -207,9 +210,34 @@ If you refer to a link repeatedly, you may use a citation, use as date/year the 
 As author, you should use the author of the article or leave it empty otherwise.
 
 This should be listed as in the bibliography, see \Cref{lst:bib}.
-\begin{lstfloat}
-\lstinputlisting[caption="The bibliography.bib file",label="lst:bib",inputencoding={utf8},language=bibtex]{bibliography.bib}
+\begin{lstfloat}[h]
+\lstinputlisting[caption="The bibliography.bib file",label={lst:bib},inputencoding={utf8},language=bibtex]{bibliography.bib}
 \end{lstfloat}
+
+\subsection{Rough Sections}
+See below in the following sections \Cref{{sec:intro},{sec:acc_sem},{sec:sys_arch},{sec:sto_for},{sec:deep_dive},{sec:per_char},{sec:con_out}} an example for a rough structure of the expected sections in the final document.
+Please note the hints given for each section. You may adjust the titles and content as you see fit to match the topic of your article.
+
+\section{Introduction} \label{sec:intro}
+The introduction section should provide a background regarding the storage system, summarize its development history, it’s usage on existing systems, and a brief feature overview.
+
+\section{Access Semantics} \label{sec:acc_sem}
+The access semantics section should list the supported logical objects and their semantics, limitations and features for parallel access.
+
+\section{System Architecture} \label{sec:sys_arch}
+The system architecture section should describe the client and server components, their roles and interaction as well as the storage stack from the client to the servers and storage media.
+
+\section{Storage Format} \label{sec:sto_for}
+The storage format section should describe the mapping of logical objects to physical object and ultimately storage media - this is traditionally referred to by the \textit{on-disk} format.
+
+\section{Deep Dive on Features} \label{sec:deep_dive}
+The deep dive on features section is an optional section that should describe how certain features (such as redundancy) are realized with the system.
+
+\section{Performance Characteristics} \label{sec:per_char}
+The performance characteristics section should provide some contemporary performance results, potentially discussing the impact of tunable settings and features.
+
+\section{Conclusion and Outlook} \label{sec:con_out}
+The conclusion and outlook section should wrap up the article and provide a feature outlook.
 
 \subsection*{Acknowledgment} %% Remove this section if not needed
 \textit{We thank XX for sponsoring.}
